@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThucTapNhom", "ThucTapNhom\ThucTapNhom.csproj", "{1786707A-9F10-4E9A-8F76-EAB70E383DE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1786707A-9F10-4E9A-8F76-EAB70E383DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1786707A-9F10-4E9A-8F76-EAB70E383DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1786707A-9F10-4E9A-8F76-EAB70E383DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1786707A-9F10-4E9A-8F76-EAB70E383DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53B49887-BF10-48F8-822F-8FD5FD05A078}
+	EndGlobalSection
+EndGlobal
