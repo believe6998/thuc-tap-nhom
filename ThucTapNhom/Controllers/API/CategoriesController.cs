@@ -58,7 +58,7 @@ namespace ThucTapNhom.Controllers.Admin
         [ResponseType(typeof(Category))]
         public IHttpActionResult GetCategory(int id)
         {
-            Category category = db.Categories.Find(id);
+            var category = db.Categories.Find(id);
             if (category == null)
             {
                 return NotFound();
@@ -80,12 +80,11 @@ namespace ThucTapNhom.Controllers.Admin
             {
                 return BadRequest();
             }
-
+            
             db.Entry(category).State = EntityState.Modified;
-
+            category.UpdatedAt = DateTime.Now;
             try
             {
-                category.UpdatedAt = DateTime.Now;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
