@@ -15,15 +15,14 @@ namespace ThucTapNhom.Controllers
         private MyDatabaseContext db = new MyDatabaseContext();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int? categoryId)
         {
-            return View(db.Products.ToList());
-        }
-
-        // GET: MenuCategory
-        public ActionResult Category(int id)
-        {
-            return View("Index", db.Categories.Where(c => c.Id == id).ToList());
+            var products = db.Products.AsQueryable();
+            if(categoryId != null)
+            {
+                products = products.Where(p => p.CategoryId == categoryId);
+            }
+            return View(products.ToList());
         }
 
         [ChildActionOnly]
