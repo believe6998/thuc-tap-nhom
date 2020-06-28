@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Trang chủ</title>
-    <link rel="icon" href="/public/favicon.png">
+    <link rel="icon" href="~/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Slab" rel="stylesheet">
@@ -19,87 +19,76 @@
 </head>
 <body>
     <nav class="bg-light sticky-top">
-        <div class="navbar navbar-expand-lg bg-light ">
-            <a class="logo" href="/home">
-                <img src="https://www.clubindustry.com/sites/clubindustry.com/files/styles/article_featured_standard/public/LF-770.png?itok=DrOSojMb" class="" alt="">
-            </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        <a class="nav-link  active-page" href="/home">TRANG CHỦ</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            DỊCH VỤ
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <a class="dropdown-item" href="/group-ex">THỂ DỤC NHÓM</a>
-                            <a class="dropdown-item" href="/fitness">THỂ HÌNH</a>
-                            <a class="dropdown-item" href="/swim">BƠI LỘI</a>
-                            <a class="dropdown-item" href="/yoga">YOGA</a>
-                            <a class="dropdown-item" href="/kick-fit">KICKFIT & MMA</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown2" role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            HỘI VIÊN
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/membership">QUYỀN LỢI HỘI VIÊN</a>
-                            <a class="dropdown-item" href="/gallery">CÂU CHUYÊN THÀNH CÔNG</a>
-                            <a class="dropdown-item" href="/about-us">VỀ CHÚNG TÔI</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/coach">HUẤN LUYỆN VIÊN</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/package">
-                            GÓI TẬP
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/news/1">TIN TỨC</a>
-                    </li>
-                    <li class="nav-item">
-                        @{if (Session["OrderSession"] != null)
-                            {
-                                Order gioHang = (Order)Session["OrderSession"];
-                                                <a class="nav-link " href="/cart">
-                                                    <i class="fas fa-shopping-cart"></i>
-                                                    <!-- <div class="d-inline list-added text-dark" id="added-quantity">gioHang.ComputeTotalProduct()</div>-->
-                                                    GIỎ HÀNG
-                                                </a>
-                            }
-                            else
-                            {
-                                <a class="nav-link " href="/cart">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <div class="d-inline list-added text-dark" id="added-quantity">0</div>
-                                    GIỎ HÀNG
-                                </a>
-                            }
-                        }
-                    </li>
-                    <button class="btn btn-outline-danger" type="button" data-toggle="modal"
-                            data-target="#register-modal">
-                        ĐĂNG KÝ TẬP THỬ
-                    </button>
-                </ul>
-            </div>
-            <span class="open-slide">
-                <a href="#" onclick="openSlideMenu()">
-                    <svg width="30" height="30">
-                        <div class="show-menu-btn">
-                            <i class="fas fa-bars"></i>
-                        </div>
-                    </svg>
+        <div class="container">
+            <div class="navbar navbar-expand-lg bg-light ">
+                <a class="logo" href="/home">
+                    <img src="~/favicon.png" class="" alt="">
                 </a>
-            </span>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link  active-page" href="/home">TRANG CHỦ</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                DỊCH VỤ
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="/group-ex">THỂ DỤC NHÓM</a>
+                                <a class="dropdown-item" href="/fitness">THỂ HÌNH</a>
+                                <a class="dropdown-item" href="/swim">BƠI LỘI</a>
+                                <a class="dropdown-item" href="/yoga">YOGA</a>
+                                <a class="dropdown-item" href="/kick-fit">KICKFIT & MMA</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown2" role="button"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                HỘI VIÊN
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/membership">QUYỀN LỢI HỘI VIÊN</a>
+                                <a class="dropdown-item" href="/gallery">CÂU CHUYÊN THÀNH CÔNG</a>
+                                <a class="dropdown-item" href="/about-us">VỀ CHÚNG TÔI</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/coach">HUẤN LUYỆN VIÊN</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/package">
+                                GÓI TẬP
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/news/1">TIN TỨC</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <div class="d-inline list-added text-dark" id="added-quantity">0</div>
+                                GIỎ HÀNG
+                            </a>
+                        </li>
+                        <button class="btn btn-outline-danger" type="button" data-toggle="modal"
+                                data-target="#register-modal">
+                            ĐĂNG KÝ TẬP THỬ
+                        </button>
+                    </ul>
+                </div>
+                <span class="open-slide">
+                    <a href="#" onclick="openSlideMenu()">
+                        <svg width="30" height="30">
+                            <div class="show-menu-btn">
+                                <i class="fas fa-bars"></i>
+                            </div>
+                        </svg>
+                    </a>
+                </span>
+            </div>
         </div>
     </nav>
     <div id="side-menu" class="side-nav">
@@ -264,7 +253,7 @@
             </div>
             <div class="box-Contact col-lg-3 col-sm-12 text-sm-center">
                 <h3>HOTLINE</h3>
-                <div class="number"><a href="#">0793245698</a></div>
+                <div class="number"><a href="#">02437657777</a></div>
                 <div class="row">
                     <div class="pl-lg-3 col-sm-12">
                         <a class="" href="https://www.facebook.com/nam.n.noi.3">

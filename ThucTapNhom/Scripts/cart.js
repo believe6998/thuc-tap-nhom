@@ -76,7 +76,6 @@ if (localStorage.getItem('listAdded') != null) {
     alert('Chưa thêm gói tập nào!');
 }
 
-
 // $('#btn-pay').prev().click(function () {
 //     location.reload();
 // });
@@ -152,8 +151,6 @@ $('.del-cart').click(function () {
 
     localStorage.setItem('listAdded', JSON.stringify(listAdded));
 });
-
-
 $('#btn-pay').click(function () {
     var listAddedString = localStorage.getItem('listAdded');
     if (listAddedString != null) {

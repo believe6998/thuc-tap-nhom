@@ -3,26 +3,13 @@
 }
 
 .navbar {
+    /*font-size: 18px;*/
     font-family: 'Roboto', sans-serif;
     border-bottom: rgba(115, 115, 115, 0.9);
     font-weight: bold;
-    font-size: 17px;
-}
-
-.navbar-nav {
-    margin-left: 70px;
-}
-
-    .navbar-nav button {
-        margin-left: 80px;
-    }
-
-.nav-item {
-    margin-right: 15px;
 }
 
 .logo {
-    margin-left: 70px;
     width: 12%;
 }
 
@@ -603,7 +590,7 @@ footer {
 
     .cart-action a {
         text-decoration: none;
-        color: #f8f9fa;
+        color: #f8f9fa
     }
 
 #side-menu .dropdown-menu {
