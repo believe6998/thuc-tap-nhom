@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ThucTapNhom.Models;
+using X.PagedList;
 
 namespace ThucTapNhom.Controllers
 {
@@ -13,40 +14,58 @@ namespace ThucTapNhom.Controllers
         private MyDatabaseContext db = new MyDatabaseContext();
 
         // GET: Products
-        public ActionResult Index(int? page, int? categoryId/*string sortOrder, string currentFilter, string searchString,*/)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? categoryId, int? page)
         {
-            var products = db.Products.AsQueryable();
-            ViewBag.categoryId = categoryId;
-            //ViewBag.CurrentSort = sortOrder;
+            
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
 
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var products = db.Products.AsQueryable();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.ToLower().Contains(searchString));
+            }
+
+
+            ViewBag.categoryId = categoryId;
             if (categoryId != null)
             {
                 products = products.Where(p => p.CategoryId == categoryId);
             }
 
-            //if (searchString != null)
-            //{
-            //    page = 1;
-            //}
-            //else
-            //{
-            //    searchString = currentFilter;
-            //}
 
-            //ViewBag.CurrentFilter = searchString;
-
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    products = products.Where(p => p.Name.Contains(searchString));
-            //}
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.Name);
+                    break;
+                case "Price": // Price ascending
+                    products = products.OrderBy(p => p.Price);
+                    break;
+                case "price_desc":
+                    products = products.OrderByDescending(p => p.Price); 
+                    break;
+                default:  // Name ascending 
+                    products = products.OrderBy(p => p.Name);
+                    break;
+            }
 
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-
             return View(products.ToPagedList(pageNumber, pageSize));
-            //return View(products.ToList());
-        }
-
+       }
 
         [ChildActionOnly]
         public ActionResult MenuCategory()
@@ -54,7 +73,6 @@ namespace ThucTapNhom.Controllers
             //var model = new DanhMucF().DSDanhMuc.ToList();
             return PartialView(db.Categories.ToList());
         }
-
 
 
         // GET: Products/Details/5
