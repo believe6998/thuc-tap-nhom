@@ -20,11 +20,6 @@ namespace ThucTapNhom.Controllers.Admin
         public IHttpActionResult GetCategories(int page = 1, int size = 10, int? status = null, string name = null, string startDate = null, string endDate = null)
         {
 
-            var skip = (page - 1) * size;
-
-            // Get total number of records
-            var total = db.Categories.Count();
-
             var categories = db.Categories.AsQueryable();
             if (status != null)
             {
@@ -44,13 +39,16 @@ namespace ThucTapNhom.Controllers.Admin
                 var tomorrow = Convert.ToDateTime(endDate).AddDays(1);
                 categories = categories.Where(s => s.CreatedAt < tomorrow);
             }
-            // Select the customers based on paging parameters
+
+            var skip = (page - 1) * size;
+
+            var total = categories.Count();
+
             categories = categories
                 .OrderBy(c => c.Id)
                 .Skip(skip)
                 .Take(size);
 
-            // Return the list of customers
             return Ok(new PagedResult<Category>(categories.ToList(), page, size, total));
         }
 
@@ -126,8 +124,8 @@ namespace ThucTapNhom.Controllers.Admin
             {
                 return NotFound();
             }
-
-            db.Categories.Remove(category);
+            category.DeletedAt = DateTime.Now;
+            category.Status = 0;
             db.SaveChanges();
 
             return Ok(category);

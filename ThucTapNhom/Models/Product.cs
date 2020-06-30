@@ -9,7 +9,7 @@ namespace ThucTapNhom.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public int Price { get; set; }
         public string ImageUrl { get; set; }
         public DateTime CreatedAt
         {
@@ -23,6 +23,6 @@ namespace ThucTapNhom.Models
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public int Status { get; set; }
-        public int CategoryId { get; set; }
+        public int CategoryId { get; set; } = 1;
     }
 }
