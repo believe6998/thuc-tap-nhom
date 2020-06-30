@@ -221,6 +221,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\API\CategoriesController.cs" />
+    <Compile Include="Controllers\API\OrdersController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoachesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
@@ -241,6 +242,10 @@
     <Compile Include="Migrations\202006221556431_first_migration.cs" />
     <Compile Include="Migrations\202006221556431_first_migration.designer.cs">
       <DependentUpon>202006221556431_first_migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006301601354_change_price_to_int.cs" />
+    <Compile Include="Migrations\202006301601354_change_price_to_int.designer.cs">
+      <DependentUpon>202006301601354_change_price_to_int.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -373,6 +378,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202006221556431_first_migration.resx">
       <DependentUpon>202006221556431_first_migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006301601354_change_price_to_int.resx">
+      <DependentUpon>202006301601354_change_price_to_int.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
