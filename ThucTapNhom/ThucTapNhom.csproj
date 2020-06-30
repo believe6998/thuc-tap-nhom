@@ -372,6 +372,10 @@
     <Compile Include="Migrations\202006301601354_change_price_to_int.designer.cs">
       <DependentUpon>202006301601354_change_price_to_int.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006302355127_aaa.cs" />
+    <Compile Include="Migrations\202006302355127_aaa.designer.cs">
+      <DependentUpon>202006302355127_aaa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -494,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006301601354_change_price_to_int.resx">
       <DependentUpon>202006301601354_change_price_to_int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006302355127_aaa.resx">
+      <DependentUpon>202006302355127_aaa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

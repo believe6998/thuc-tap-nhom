@@ -65,7 +65,7 @@ namespace ThucTapNhom.Controllers.API
             var total = orders.Count();
 
             orders = orders
-                .OrderBy(c => c.Id)
+                .OrderByDescending(c=>c.CreatedAt)
                 .Skip(skip)
                 .Take(size);
 

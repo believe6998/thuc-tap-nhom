@@ -10,9 +10,7 @@ namespace ThucTapNhom.Models
     {
         public int Id { get; set; }
         public double TotalPrice { get; set; }
-        [Required]
         public string CustomerName { get; set; }
-        [Required]
         public string CustomerPhone { get; set; }
         public DateTime CreatedAt
         {
