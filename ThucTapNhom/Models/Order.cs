@@ -25,6 +25,6 @@ namespace ThucTapNhom.Models
         private DateTime? _dateCreated = null;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public int Status { get; set; }
+        public int Status { get; set; } = 1;
     }
 }
