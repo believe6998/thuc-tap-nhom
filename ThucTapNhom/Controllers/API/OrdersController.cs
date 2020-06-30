@@ -12,103 +12,103 @@ using ThucTapNhom.Models;
 
 namespace ThucTapNhom.Controllers.API
 {
-    public class ProductsController : ApiController
+    public class OrdersController : ApiController
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
-        // GET: api/Products
-        public IHttpActionResult GetProducts(
-            int page = 1, 
+        // GET: api/Orders
+        public IHttpActionResult GetOrders(
+            int page = 1,
             int size = 10,
             int? status = null,
             string name = null,
+            string phone = null,
             string startDate = null,
             string endDate = null,
-            int? categoryId = null,
             int? minPrice = null,
             int? maxPrice = null
-            )
+        )
         {
-            var products = db.Products.AsQueryable();
+            var orders = db.Orders.AsQueryable();
             if (status != null)
             {
-                products = products.Where(s => s.Status == status);
+                orders = orders.Where(s => s.Status == status);
             }
             if (name != null)
             {
-                products = products.Where(s => s.Name.Contains(name));
+                orders = orders.Where(s => s.CustomerName.Contains(name));
+            } 
+            if (phone != null)
+            {
+                orders = orders.Where(s => s.CustomerPhone.Equals(phone));
             }
             if (startDate != null)
             {
                 var startDateFormat = Convert.ToDateTime(startDate);
-                products = products.Where(s => s.CreatedAt >= startDateFormat);
+                orders = orders.Where(s => s.CreatedAt >= startDateFormat);
             }
             if (endDate != null)
             {
                 var tomorrow = Convert.ToDateTime(endDate).AddDays(1);
-                products = products.Where(s => s.CreatedAt < tomorrow);
-            }
-            if (categoryId != null)
-            {
-                products = products.Where(s => s.CategoryId == categoryId);
+                orders = orders.Where(s => s.CreatedAt < tomorrow);
             }
             if (minPrice != null)
             {
-                products = products.Where(s => s.Price >= minPrice);
+                orders = orders.Where(s => s.TotalPrice >= minPrice);
             }
             if (maxPrice != null)
             {
-                products = products.Where(s => s.Price >= maxPrice);
+                orders = orders.Where(s => s.TotalPrice >= maxPrice);
             }
             var skip = (page - 1) * size;
 
-            var total = products.Count();
+            var total = orders.Count();
 
-            products = products
+            orders = orders
                 .OrderBy(c => c.Id)
                 .Skip(skip)
                 .Take(size);
 
-            return Ok(new PagedResult<Product>(products.ToList(), page, size, total));
+            return Ok(new PagedResult<Order>(orders.ToList(), page, size, total));
         }
 
-        // GET: api/Products/5
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult GetProduct(int id)
+        // GET: api/Orders/5
+        [ResponseType(typeof(Order))]
+        public IHttpActionResult GetOrder(int id)
         {
-            Product product = db.Products.Find(id);
-            if (product == null)
+            var orderDetail = db.OrderDetails.FirstOrDefault(o => o.OrderId == id);
+            if (orderDetail == null)
             {
                 return NotFound();
             }
 
-            return Ok(product);
+            return Ok(orderDetail);
         }
 
-        // PUT: api/Products/5
+        // PUT: api/Orders/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProduct(int id, Product product)
+        public IHttpActionResult PutOrder(int id, Order order)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != product.Id)
+            if (id != order.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(product).State = EntityState.Modified;
+            db.Entry(order).State = EntityState.Modified;
 
             try
             {
-                product.UpdatedAt = DateTime.Now;
+                order.UpdatedAt = DateTime.Now;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!OrderExists(id))
                 {
                     return NotFound();
                 }
@@ -121,35 +121,35 @@ namespace ThucTapNhom.Controllers.API
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Products
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult PostProduct(Product product)
+        // POST: api/Orders
+        [ResponseType(typeof(Order))]
+        public IHttpActionResult PostOrder(Order order)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            product.Status = 1;
-            db.Products.Add(product);
+            db.Orders.Add(order);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+            return CreatedAtRoute("DefaultApi", new { id = order.Id }, order);
         }
 
-        // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult DeleteProduct(int id)
+        // DELETE: api/Orders/5
+        [ResponseType(typeof(Order))]
+        public IHttpActionResult DeleteOrder(int id)
         {
-            Product product = db.Products.Find(id);
-            if (product == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return NotFound();
             }
-            product.DeletedAt = DateTime.Now;
-            product.Status = 0;
+
+            order.Status = 0;
+            order.DeletedAt = DateTime.Now;
             db.SaveChanges();
 
-            return Ok(product);
+            return Ok(order);
         }
 
         protected override void Dispose(bool disposing)
@@ -161,9 +161,9 @@ namespace ThucTapNhom.Controllers.API
             base.Dispose(disposing);
         }
 
-        private bool ProductExists(int id)
+        private bool OrderExists(int id)
         {
-            return db.Products.Count(e => e.Id == id) > 0;
+            return db.Orders.Count(e => e.Id == id) > 0;
         }
     }
 }
