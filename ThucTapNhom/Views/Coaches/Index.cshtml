@@ -1,0 +1,87 @@
+﻿@using ThucTapNhom.Models
+@model IEnumerable<ThucTapNhom.Models.Coach>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-content ">
+    <section>
+        <img width="100%" src="http://prod.static9.net.au/_/media/2018/08/22/09/19/ptcoach785.jpg" alt="">
+    </section>
+    <section class=" register-now">
+        <div class="row">
+            <div class="col-8 d-none d-lg-block">
+                <div class="text-white register-now-title">ĐĂNG KÝ NGAY</div>
+                <div class="text-white register-now-detail">
+                    Trải nghiệm 3 ngày miễn phí toàn bộ dịch vụ
+                </div>
+            </div>
+            <div class="col-lg-4 text-sm-center btn-register-now">
+                <button class="btn btn-danger " type="button" data-toggle="modal"
+                        data-target="#register-modal">
+                    <div>ĐĂNG KÝ NGAY</div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    @for (var i = 0; i < Model.Count(); i++)
+    {
+        <section class="pt-introduce-1 bg-light">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 pt-1-img ">
+                    <img src="@Model.ToArray()[i].ImageUrl"
+                         alt="">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <h1 class="introduce-1-detail-1 text-danger">
+                        @Model.ToArray()[i].Name
+                    </h1>
+                    <div class="">
+                        @Model.ToArray()[i].Content
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        if (i < Model.Count() - 1)
+        {
+            <section class="pt-introduce-2">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <h1 class="introduce-2-detail-1 text-danger">
+                            @Model.ToArray()[i + 1].Name
+                        </h1>
+                        <div>
+                            @Model.ToArray()[i + 1].Content
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 pt-2-img">
+                        <img src="@Model.ToArray()[i + 1].ImageUrl" alt="">
+                    </div>
+                </div>
+            </section>
+            i++;
+        }
+    }
+
+    <section class=" register-now">
+        <div class="row">
+            <div class="col-8 d-none d-lg-block">
+                <div class="text-white register-now-title">ĐĂNG KÝ NGAY</div>
+                <div class="text-white register-now-detail">
+                    Trải nghiệm 3 ngày miễn phí toàn bộ dịch vụ
+                </div>
+            </div>
+            <div class="col-lg-4 text-sm-center btn-register-now">
+                <button class="btn btn-danger " type="button" data-toggle="modal"
+                        data-target="#register-modal">
+                    <div>ĐĂNG KÝ NGAY</div>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,26 @@
+﻿@using ThucTapNhom.Models
+@model IEnumerable<ThucTapNhom.Models.Category>
+
+@{
+    ViewBag.Title = "View";
+}
+<div class="col-3 d-none d-lg-block">
+    <div class="pl-4">
+        <div class="list-category">
+            <h3 class="font-weight-bold text-danger pb-3 pt-5">DANH MỤC</h3>
+            <div class="category-item-list pt-4 font-weight-bolder">
+
+                <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input class="form-control form-control-sm ml-3 w-75" type="submit" placeholder="Search"
+                           aria-label="Search" value="Search">
+                </form>
+
+                @foreach (Category item in Model)
+                {
+                    <div class="category-item"><a href="/Products/Category/@item.Id">@item.Name</a></div>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
