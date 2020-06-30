@@ -1,11 +1,15 @@
-﻿using PagedList;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using ThucTapNhom.Models;
-using X.PagedList;
+using PagedList.Mvc;
+using PagedList;
+
 
 namespace ThucTapNhom.Controllers
 {
@@ -64,7 +68,8 @@ namespace ThucTapNhom.Controllers
 
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            return View(products.ToPagedList(pageNumber, pageSize));
+
+            return View(products.ToList().ToPagedList(pageNumber, pageSize));
        }
 
         [ChildActionOnly]
