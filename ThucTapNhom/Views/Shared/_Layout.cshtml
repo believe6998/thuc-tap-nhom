@@ -283,14 +283,7 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/validate.js"></script>
-    <script src="~/Scripts/quantity-added.js"></script>
     <script src="~/Scripts/responsive.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".btn-add").on("click", function () {
-                alert('Package added');
-            });
-        });
-    </script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
