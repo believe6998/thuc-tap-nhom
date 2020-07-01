@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Newtonsoft.Json.Linq;
 using ThucTapNhom.Models;
 
 namespace ThucTapNhom.Controllers.API
@@ -37,7 +38,7 @@ namespace ThucTapNhom.Controllers.API
             if (name != null)
             {
                 orders = orders.Where(s => s.CustomerName.Contains(name));
-            } 
+            }
             if (phone != null)
             {
                 orders = orders.Where(s => s.CustomerPhone.Equals(phone));
@@ -65,7 +66,7 @@ namespace ThucTapNhom.Controllers.API
             var total = orders.Count();
 
             orders = orders
-                .OrderByDescending(c=>c.CreatedAt)
+                .OrderByDescending(c => c.CreatedAt)
                 .Skip(skip)
                 .Take(size);
 
@@ -122,17 +123,33 @@ namespace ThucTapNhom.Controllers.API
         }
 
         // POST: api/Orders
-        [ResponseType(typeof(Order))]
-        public IHttpActionResult PostOrder(Order order)
+        public IHttpActionResult PostOrder(JObject data)
         {
-            if (!ModelState.IsValid)
+            dynamic jsonData = data;
+            var customerName = jsonData.customerName;
+            var customerPhone = jsonData.customerPhone;
+            var totalPrice = jsonData.totalPrice;
+            JArray products = jsonData.products;
+            var order = new Order
             {
-                return BadRequest(ModelState);
-            }
+                CustomerName = customerName,
+                CustomerPhone = customerPhone,
+                TotalPrice = totalPrice
+            };
             db.Orders.Add(order);
             db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = order.Id }, order);
+            for (var i = 0; i < products.Count; i++)
+            {
+                var orderDetail = new OrderDetail
+                {
+                    OrderId = order.Id,
+                    ProductId = (int) products[i]["id"],
+                    Quantity = (int) products[i]["quantity"]
+                };
+                db.OrderDetails.Add(orderDetail);
+                db.SaveChanges();
+            }
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // DELETE: api/Orders/5
