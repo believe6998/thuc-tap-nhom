@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/nadi699899/databases/ThucTapNhom",
+      "type": "mssql.azure",
+      "connectionId": "nadi699899.database.windows.net",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
