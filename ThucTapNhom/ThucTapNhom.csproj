@@ -347,6 +347,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\API\CategoriesController.cs" />
     <Compile Include="Controllers\API\OrdersController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoachesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
@@ -433,7 +434,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\nugetexample.js" />
-    <Content Include="Scripts\package.js" />
+    <Content Include="Scripts\add-to-cart.js" />
     <Content Include="Scripts\quantity-added.js" />
     <Content Include="Scripts\responsive.js" />
     <Content Include="Scripts\validate.js" />
@@ -480,9 +481,11 @@
     <Content Include="Views\Kickfit\Index.cshtml" />
     <Content Include="Views\GroupEx\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Payment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
