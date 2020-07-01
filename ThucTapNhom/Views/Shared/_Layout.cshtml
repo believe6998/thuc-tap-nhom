@@ -30,12 +30,12 @@
                             <a class="nav-link  active-page" href="/home">TRANG CHỦ</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
+                            <a class="nav-link dropdown-toggle " href="#" id="dropdown1" role="button"
                                data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                               aria-haspopup="true" aria-expanded="True">
                                 DỊCH VỤ
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <div class="dropdown-menu" aria-labelledby="dropdown1">
                                 <a class="dropdown-item" href="/group-ex">THỂ DỤC NHÓM</a>
                                 <a class="dropdown-item" href="/fitness">THỂ HÌNH</a>
                                 <a class="dropdown-item" href="/swim">BƠI LỘI</a>
@@ -44,12 +44,12 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown2" role="button"
+                            <a class="nav-link dropdown-toggle " href="#" id="dropdown2" role="button"
                                data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                               aria-haspopup="true" aria-expanded="True">
                                 HỘI VIÊN
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="dropdown2">
                                 <a class="dropdown-item" href="/membership">QUYỀN LỢI HỘI VIÊN</a>
                                 <a class="dropdown-item" href="/gallery">CÂU CHUYÊN THÀNH CÔNG</a>
                                 <a class="dropdown-item" href="/about-us">VỀ CHÚNG TÔI</a>
@@ -73,10 +73,13 @@
                                 GIỎ HÀNG
                             </a>
                         </li>
-                        <button class="btn btn-outline-danger" type="button" data-toggle="modal"
-                                data-target="#register-modal">
-                            ĐĂNG KÝ TẬP THỬ
-                        </button>
+                        
+                        <li>
+                            <button class="btn btn-outline-danger" type="button" data-toggle="modal"
+                                    data-target="#register-modal">
+                                ĐĂNG KÝ TẬP THỬ
+                            </button>
+                        </li>
                     </ul>
                 </div>
                 <span class="open-slide">
@@ -91,73 +94,7 @@
             </div>
         </div>
     </nav>
-    <div id="side-menu" class="side-nav">
-        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-        <ul class="navbar-nav">
-            <li class="nav-item ">
-                <a class="nav-link  active-page" href="/home">TRANG CHỦ</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    DỊCH VỤ
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/group-ex">THỂ DỤC NHÓM</a>
-                    <a class="dropdown-item" href="/fitness">THỂ HÌNH</a>
-                    <a class="dropdown-item" href="/swim">BƠI LỘI</a>
-                    <a class="dropdown-item" href="/yoga">YOGA</a>
-                    <a class="dropdown-item" href="/kick-fit">KICKFIT & MMA</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown2" role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    HỘI VIÊN
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/membership">QUYỀN LỢI HỘI VIÊN</a>
-                    <a class="dropdown-item" href="/gallery">CÂU CHUYÊN THÀNH CÔNG</a>
-                    <a class="dropdown-item" href="/about-us">VỀ CHÚNG TÔI</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/coach">HUẤN LUYỆN VIÊN</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/package" id="navbarDropdown2"
-                   role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    GÓI TẬP
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/package/group-ex">THỂ DỤC NHÓM</a>
-                    <a class="dropdown-item" href="/package/fitness">THỂ HÌNH</a>
-                    <a class="dropdown-item" href="/package/swim">BƠI LỘI</a>
-                    <a class="dropdown-item" href="/package/yoga">YOGA</a>
-                    <a class="dropdown-item" href="/package/kick-fit">KICKFIT & MMA</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/news/1">TIN TỨC</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="d-inline list-added text-dark" id="added-quantity"></div>
-                    GIỎ HÀNG
-                </a>
-            </li>
-            <button class="btn btn-outline-danger" type="button" data-toggle="modal"
-                    data-target="#register-modal">
-                ĐĂNG KÝ TẬP THỬ
-            </button>
-        </ul>
-    </div>
-    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
