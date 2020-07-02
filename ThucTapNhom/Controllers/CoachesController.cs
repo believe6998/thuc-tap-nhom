@@ -19,20 +19,5 @@ namespace ThucTapNhom.Controllers
         {
             return View(db.Coaches.ToList());
         }
-
-        // GET: Coaches/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Coach coach = db.Coaches.Find(id);
-            if (coach == null)
-            {
-                return HttpNotFound();
-            }
-            return View(coach);
-        }
     }
 }
