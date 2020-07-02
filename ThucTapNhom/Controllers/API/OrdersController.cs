@@ -74,16 +74,22 @@ namespace ThucTapNhom.Controllers.API
         }
 
         // GET: api/Orders/5
-        [ResponseType(typeof(Order))]
         public IHttpActionResult GetOrder(int id)
         {
-            var orderDetail = db.OrderDetails.FirstOrDefault(o => o.OrderId == id);
-            if (orderDetail == null)
-            {
-                return NotFound();
-            }
+            
+           var orderDetail = from o in db.OrderDetails
+                join p in db.Products on o.ProductId equals p.Id
+                where o.OrderId == id
+                select new
+                {
+                    Img = p.ImageUrl,
+                    Name = p.Name,
+                    Quantity = o.Quantity,
+                    Price = p.Price,
+                    UnitPrice = p.Price*o.Quantity
+                };
 
-            return Ok(orderDetail);
+           return Ok(orderDetail.ToList());
         }
 
         // PUT: api/Orders/5
