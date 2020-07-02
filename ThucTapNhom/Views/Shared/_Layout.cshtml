@@ -30,26 +30,26 @@
                             <a class="nav-link  active-page" href="/home">TRANG CHỦ</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
+                            <a class="nav-link dropdown-toggle " href="#" id="dropdown1" role="button"
                                data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                               aria-haspopup="true" aria-expanded="True">
                                 DỊCH VỤ
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                <a class="dropdown-item" href="/GroupEx">THỂ DỤC NHÓM</a>
-                                <a class="dropdown-item" href="/Fitness">THỂ HÌNH</a>
-                                <a class="dropdown-item" href="/Swim">BƠI LỘI</a>
-                                <a class="dropdown-item" href="/Yoga">YOGA</a>
-                                <a class="dropdown-item" href="/Kickfit">KICKFIT & MMA</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown1">
+                                <a class="dropdown-item" href="/group-ex">THỂ DỤC NHÓM</a>
+                                <a class="dropdown-item" href="/fitness">THỂ HÌNH</a>
+                                <a class="dropdown-item" href="/swim">BƠI LỘI</a>
+                                <a class="dropdown-item" href="/yoga">YOGA</a>
+                                <a class="dropdown-item" href="/kick-fit">KICKFIT & MMA</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown2" role="button"
+                            <a class="nav-link dropdown-toggle " href="#" id="dropdown2" role="button"
                                data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                               aria-haspopup="true" aria-expanded="True">
                                 HỘI VIÊN
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="dropdown2">
                                 <a class="dropdown-item" href="/membership">QUYỀN LỢI HỘI VIÊN</a>
                                 <a class="dropdown-item" href="/gallery">CÂU CHUYÊN THÀNH CÔNG</a>
                                 <a class="dropdown-item" href="/about-us">VỀ CHÚNG TÔI</a>
@@ -73,10 +73,13 @@
                                 GIỎ HÀNG
                             </a>
                         </li>
-                        <button class="btn btn-outline-danger" type="button" data-toggle="modal"
-                                data-target="#register-modal">
-                            ĐĂNG KÝ TẬP THỬ
-                        </button>
+                        
+                        <li>
+                            <button class="btn btn-outline-danger" type="button" data-toggle="modal"
+                                    data-target="#register-modal">
+                                ĐĂNG KÝ TẬP THỬ
+                            </button>
+                        </li>
                     </ul>
                 </div>
                 <span class="open-slide">
@@ -91,80 +94,14 @@
             </div>
         </div>
     </nav>
-    <div id="side-menu" class="side-nav">
-        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-        <ul class="navbar-nav">
-            <li class="nav-item ">
-                <a class="nav-link  active-page" href="/home">TRANG CHỦ</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    DỊCH VỤ
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/GroupEx">THỂ DỤC NHÓM</a>
-                    <a class="dropdown-item" href="/Fitness">THỂ HÌNH</a>
-                    <a class="dropdown-item" href="/Swim">BƠI LỘI</a>
-                    <a class="dropdown-item" href="/Yoga">YOGA</a>
-                    <a class="dropdown-item" href="/Kickfit">KICKFIT & MMA</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown2" role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    HỘI VIÊN
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/Membership">QUYỀN LỢI HỘI VIÊN</a>
-                    <a class="dropdown-item" href="/Gallery">CÂU CHUYÊN THÀNH CÔNG</a>
-                    <a class="dropdown-item" href="/Aboutus">VỀ CHÚNG TÔI</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/Coaches">HUẤN LUYỆN VIÊN</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/package" id="navbarDropdown2"
-                   role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    GÓI TẬP
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/Products?idCategory=3">THỂ DỤC NHÓM</a>
-                    <a class="dropdown-item" href="/Products?idCategory=1">THỂ HÌNH</a>
-                    <a class="dropdown-item" href="/Products?idCategory=2">BƠI LỘI</a>
-                    <a class="dropdown-item" href="/Products?idCategory=4">YOGA</a>
-                    <a class="dropdown-item" href="/Products?idCategory=5">KICKFIT & MMA</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/News">TIN TỨC</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="d-inline list-added text-dark" id="added-quantity"></div>
-                    GIỎ HÀNG
-                </a>
-            </li>
-            <button class="btn btn-outline-danger" type="button" data-toggle="modal"
-                    data-target="#register-modal">
-                ĐĂNG KÝ TẬP THỬ
-            </button>
-        </ul>
-    </div>
-    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="box-brand pl-5">
                         <div>
-                            <img src="http://primefitnessgyms.com/wp-content/uploads/2018/03/Prime-Fitnessold.png"
+                            <img src="~/favicon.png"
                                  alt="Brand">
                         </div>
                         <div class="banner">
@@ -270,7 +207,7 @@
             </div>
             <div class="box-brand col-lg-3 d-none d-lg-block pr-5">
                 <div>
-                    <img src="https://www.clubindustry.com/sites/clubindustry.com/files/styles/article_featured_standard/public/LF-770.png?itok=DrOSojMb" alt="Brand">
+                    <img src="~/favicon.png" alt="Brand">
                 </div>
                 <div class="banner">
                     Fit For Life
@@ -283,14 +220,8 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/validate.js"></script>
-    <script src="~/Scripts/quantity-added.js"></script>
     <script src="~/Scripts/responsive.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".btn-add").on("click", function () {
-                alert('Package added');
-            });
-        });
-    </script>
+    <script src="~/Scripts/quantity-added.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
