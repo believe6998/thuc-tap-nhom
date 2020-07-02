@@ -19,14 +19,14 @@ function load() {
                 htmlContent += '    <input class="text-center package-quantity-cart" name="quantity" type="text" size="1" name="count" value="' + listAdded[key].quantity + '">';
                 htmlContent += '    <btn class="ml-2 cart-minus" style="cursor: pointer">-</btn>';
                 htmlContent += '   </td>';
-                htmlContent += '   <td class="text-center ">' + unitTotalPrice + ' VND</td>';
+                htmlContent += '   <td class="text-center unit-price">' + unitTotalPrice + '</td>';
                 htmlContent += '   <td class="text-center "><a href="" class="btn-delete"><i class="fas fa-trash-alt"></i></a></td>';
                 htmlContent += '</tr>';
                 totalPrice += unitTotalPrice;
             }
         }
         htmlContent += '<td colspan="3">Mã giảm giá/ Quà tặng:</td>';
-        htmlContent += ' <td colspan="3" class="text-center font-weight-bold"> Tổng tiền: ' + totalPrice + ' VND</td>';
+        htmlContent += ' <td colspan="3" class="text-center font-weight-bold"> Tổng tiền: <span id="total-price">' + totalPrice + '</span> VND</td>';
         $('#list-cart').html(htmlContent);
         let currentId = 0;
         function updateQuantity() {
@@ -39,6 +39,18 @@ function load() {
             sessionStorage.setItem('listAdded', JSON.stringify(listAdded));
             load();
         }
+        $('.package-price-cart').each(function () {
+            var price = $(this).text();
+            $(this).text(numeral(price).format('0,0'));
+        });
+        $('.unit-price').each(function () {
+            var price = $(this).text();
+            $(this).text(numeral(price).format('0,0'));
+        });
+        $('#total-price').each(function () {
+            var price = $(this).text();
+            $(this).text(numeral(price).format('0,0'));
+        });
         $('input[name ="quantity"]').on('keypress', function (e) {
             if (e.which === 13) {
                 currentId = $(this).prev().text();
@@ -117,3 +129,4 @@ function load() {
 }
 
 load();
+
